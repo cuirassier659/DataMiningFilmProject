@@ -1,0 +1,31 @@
+{
+  "dataset": "MovieLens 1M",
+  "source": "https://grouplens.org/datasets/movielens/1m/",
+  "rows_read": 1000209,
+  "valid_distinct_ratings": 1000209,
+  "invalid_rows": 0,
+  "duplicate_user_movie_pairs": 0,
+  "distinct_users": 6040,
+  "distinct_rated_movies": 3706,
+  "observed_matrix_density": 0.044684,
+  "observed_matrix_sparsity": 0.955316,
+  "rating_distribution": {
+    "1": 56174,
+    "2": 107557,
+    "3": 261197,
+    "4": 348971,
+    "5": 226310
+  },
+  "ratings_per_user": {
+    "min": 20,
+    "median": 96.0,
+    "max": 2314
+  },
+  "ratings_per_movie": {
+    "min": 1,
+    "median": 123.5,
+    "max": 3428
+  },
+  "earliest_rating_utc": "2000-04-25T23:05:32+00:00",
+  "latest_rating_utc": "2003-02-28T17:49:50+00:00"
+}
