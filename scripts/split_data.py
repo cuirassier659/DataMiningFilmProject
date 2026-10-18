@@ -1,10 +1,5 @@
-"""Create global chronological MovieLens splits without breaking timestamp ties.
-
-Usage from the project root:
-    python scripts/split_data.py
-
-Split files are deliberately written under data/ (ignored by Git). The aggregate
-report is written under reports/ and is safe to commit.
+"""Creating a chronological train/validation/test split of the MovieLens 1M dataset.
+The split is based on the global timestamp of each rating.
 """
 
 import argparse

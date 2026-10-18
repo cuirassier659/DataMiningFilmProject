@@ -1,0 +1,30 @@
+{
+  "experiment": "Day 3: popularity top-k + training movie-mean rating baseline",
+  "fit_data": "data/splits/train.csv ONLY",
+  "evaluation_data": "data/splits/validation.csv ONLY",
+  "test_data_used": false,
+  "candidate_movies": 3633,
+  "known_train_users": 4870,
+  "ranking_method": "training movie rating count, descending; movie ID tie-break",
+  "history_exclusion": "movies rated by this user in training only",
+  "ranking_validation": {
+    "validation_ratings": 150029,
+    "known_user_and_movie_ratings": 35120,
+    "ratings_with_unseen_user": 114891,
+    "ratings_with_unseen_movie": 44,
+    "ratings_with_both_unseen": 26,
+    "eligible_positive_ratings": 18741,
+    "excluded_cold_start_union": 114909,
+    "evaluated_users_with_positive": 475,
+    "relevance_definition": "validation rating >= 4",
+    "ndcg_at_10": 0.17528656993731834,
+    "recall_at_10": 0.05219745129052282
+  },
+  "rating_validation": {
+    "evaluated_warm_start_ratings": 35120,
+    "movie_mean_rmse": 0.9740883917164046,
+    "global_mean_rmse": 1.1181280754215377,
+    "train_global_mean": 3.601881
+  },
+  "limitations": "Offline held-out ratings are incomplete relevance labels, not dislikes. Results are for warm-start users and movies only. The global chronological split has substantial user cold-start."
+}

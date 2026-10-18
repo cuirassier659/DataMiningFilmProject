@@ -1,4 +1,4 @@
-"""Unit tests for time-safe split behavior (uses only synthetic ratings)."""
+"""Unit tests for time-safe split behavior. I am using synthetic data for this purpose."""
 
 import csv
 import tempfile
