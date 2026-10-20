@@ -1,0 +1,124 @@
+{
+  "data_scope": "train.csv and validation.csv only; test.csv NOT read",
+  "train": {
+    "ratings": 700148,
+    "users": 4870,
+    "movies": 3633,
+    "density": 0.039573,
+    "sparsity": 0.960427,
+    "rating_profile": {
+      "ratings": 700148,
+      "distribution": {
+        "1": 38699,
+        "2": 73008,
+        "3": 180562,
+        "4": 243946,
+        "5": 163933
+      },
+      "mean_rating": 3.60188,
+      "positive_4_or_5_share": 0.58256
+    },
+    "ratings_per_user_percentiles": {
+      "min": 2,
+      "p25": 39.0,
+      "median": 84.0,
+      "p75": 185.0,
+      "p90": 333.1,
+      "p99": 815.62,
+      "max": 1849
+    },
+    "ratings_per_movie_percentiles": {
+      "min": 1,
+      "p25": 23.0,
+      "median": 86.0,
+      "p75": 247.0,
+      "p90": 519.8,
+      "p99": 1324.12,
+      "max": 2567
+    },
+    "movies_with_at_most_5_ratings": 390,
+    "movies_with_at_most_20_ratings": 853,
+    "movie_rating_share_top_1pct": {
+      "top_movies": 37,
+      "share_of_training_ratings": 0.093
+    },
+    "movie_rating_share_top_10pct": {
+      "top_movies": 364,
+      "share_of_training_ratings": 0.45221
+    },
+    "first_utc": "2000-04-25T23:05:32+00:00",
+    "last_utc": "2000-11-22T03:06:26+00:00",
+    "ratings_by_month": {
+      "2000-04": 11396,
+      "2000-05": 67437,
+      "2000-06": 54486,
+      "2000-07": 90334,
+      "2000-08": 182109,
+      "2000-09": 52421,
+      "2000-10": 42294,
+      "2000-11": 199671
+    }
+  },
+  "validation": {
+    "rating_profile_all": {
+      "ratings": 150029,
+      "distribution": {
+        "1": 9158,
+        "2": 17143,
+        "3": 39478,
+        "4": 51767,
+        "5": 32483
+      },
+      "mean_rating": 3.54172,
+      "positive_4_or_5_share": 0.56156
+    },
+    "rating_profile_warm_start_only": {
+      "ratings": 35120,
+      "distribution": {
+        "1": 2150,
+        "2": 4318,
+        "3": 9911,
+        "4": 12221,
+        "5": 6520
+      },
+      "mean_rating": 3.47389,
+      "positive_4_or_5_share": 0.53363
+    },
+    "total_ratings": 150029,
+    "total_users": 1352,
+    "users_seen_in_train": 507,
+    "users_not_seen_in_train": 845,
+    "first_utc": "2000-11-22T03:06:30+00:00",
+    "last_utc": "2000-12-10T04:20:42+00:00",
+    "ratings_by_month": {
+      "2000-11": 91122,
+      "2000-12": 58907
+    },
+    "cold_start_rating_counts": {
+      "new_movie_only": 18,
+      "new_user_and_movie": 26,
+      "new_user_only": 114865,
+      "warm": 35120
+    },
+    "warm_rating_share": 0.23409,
+    "cold_start_rating_share": 0.76591,
+    "warm_positive_ratings_4_or_5": 18741,
+    "warm_users_with_positive": 475,
+    "train_history_percentiles_for_warm_positive_users": {
+      "min": 3,
+      "p25": 50.0,
+      "median": 127.0,
+      "p75": 278.0,
+      "p90": 453.8,
+      "p99": 971.1,
+      "max": 1440
+    }
+  },
+  "methodological_notes": [
+    "Interpret ranking scores only for users with a warm-start positive in validation.",
+    "Global chronological splitting creates large new-user cold-start; report exclusions.",
+    "Train/validation rating distribution differences may reflect changing user cohorts.",
+    "An unobserved rating does not establish dislike or even exposure to the movie.",
+    "Do not use test ratings for development, EDA-based choices, or model tuning."
+  ]
+}

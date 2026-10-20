@@ -1,10 +1,4 @@
-"""Day 3: Train-only popularity ranking and mean-rating baselines.
-
-Run from the repository root:
-    python scripts/popularity_baseline.py
-
-Only TRAIN is used to fit the recommenders. VALIDATION labels are read
-exclusively to calculate metrics. Test data is not accessed in this script.
+"""popularity ranking and mean-rating baselines.
 """
 
 import argparse
@@ -82,11 +76,7 @@ def ranking_metrics(recommendations, relevant_movies, k=10):
 
 
 def evaluate_ranking(model, validation_rows, k=10, positive_threshold=4):
-    """Macro-average on known users with at least one relevant known movie.
-
-    Unseen validation users and movies are excluded from the warm-start
-    comparison. Never use validation ratings to mark previously seen items.
-    """
+    """Macro-average on known users with at least one relevant known movie. """
     positives = defaultdict(set)
     counts = {"validation_ratings": len(validation_rows),
               "known_user_and_movie_ratings": 0,
@@ -133,10 +123,7 @@ def evaluate_ranking(model, validation_rows, k=10, positive_threshold=4):
 
 
 def evaluate_rating_mean(train_rows, validation_rows):
-    """Movie-mean and global-mean RMSE on warm-start validation ratings.
-
-    Fit means only from TRAIN. The global mean is a simple reference value.
-    """
+    """Movie-mean and global-mean RMSE on warm-start validation ratings."""
     if not train_rows:
         raise ValueError("Cannot evaluate an empty training dataset")
     totals = defaultdict(float)

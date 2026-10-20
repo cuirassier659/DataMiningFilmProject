@@ -1,4 +1,4 @@
-"""Small deterministic tests for Day 3; do not need MovieLens files."""
+"""Small deterministic tests for Day 3"""
 
 import math
 import tempfile
@@ -17,7 +17,7 @@ from scripts.popularity_baseline import (
 
 class PopularityBaselineTests(unittest.TestCase):
     def setUp(self):
-        # Movies 10 and 20 each have 2 TRAIN ratings; 30 has one.
+        # Movies 10 and 20 each have 2 training ratings, 30 has one.
         self.train = [
             (1, 10, 5, 1), (1, 20, 2, 1),
             (2, 10, 4, 1), (2, 30, 4, 1),
@@ -41,7 +41,6 @@ class PopularityBaselineTests(unittest.TestCase):
         self.assertEqual(result["evaluated_users_with_positive"], 1)
         self.assertEqual(result["ndcg_at_10"], 1.0)
         self.assertEqual(result["recall_at_10"], 1.0)
-        # Fitting changed neither popularity nor TRAIN history.
         self.assertEqual(model.counts[20], 2)
         self.assertEqual(model.recommend(2, 10), [20])
 
@@ -54,14 +53,12 @@ class PopularityBaselineTests(unittest.TestCase):
         self.assertLess(later_ndcg, ndcg)
 
     def test_only_eligible_positive_users(self):
-        # Rating 3 is not a positive item; this user does not contribute to macro mean.
         validation = [(2, 20, 3, 2), (99, 20, 5, 2)]
         result = evaluate_ranking(PopularityBaseline().fit(self.train), validation)
         self.assertEqual(result["evaluated_users_with_positive"], 0)
         self.assertIsNone(result["ndcg_at_10"])
 
     def test_movie_means_use_training_only(self):
-        # Movie 20 TRAIN mean = 3.5, global TRAIN mean = 4.0.
         validation = [(2, 20, 5, 2), (99, 20, 1, 2), (2, 999, 1, 2)]
         result = evaluate_rating_mean(self.train, validation)
         self.assertEqual(result["evaluated_warm_start_ratings"], 1)
